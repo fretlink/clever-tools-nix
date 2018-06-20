@@ -14,7 +14,7 @@ in
   stdenv.mkDerivation {
     name = "clever-tools-${version}";
 
-    buildInputs = [ nodegit nodejs-6_x ];
+    buildInputs = [ nodegit ];
 
     src = fetchurl {
       url = "https://clever-tools.cellar.services.clever-cloud.com/releases/${version}/clever-tools-${version}_linux.tar.gz";
