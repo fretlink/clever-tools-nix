@@ -12,7 +12,7 @@ let
 in
 
   stdenv.mkDerivation {
-    name = "clever-cli-${version}";
+    name = "clever-tools-${version}";
 
     buildInputs = [ nodegit nodejs-6_x ];
 

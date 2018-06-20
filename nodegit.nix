@@ -20,7 +20,7 @@ in
   assert pkgs.stdenv.system == "x86_64-linux";
 
   stdenv.mkDerivation {
-    name = "nodegit-${version}";
+    name = "nodegit-${version}-node-v51";
 
     src = fetchurl {
       url = "https://nodegit.s3.amazonaws.com/nodegit/nodegit/nodegit-v${version}-node-v51-linux-x64.tar.gz";
