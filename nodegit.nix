@@ -27,8 +27,6 @@ in
       sha256 = "d022a88e58fa70f78b59b475fa6ecc6724d372a779b132264cf571f71bc50020";
     };
 
-    buildPhase = ":";
-
     libPath = stdenv.lib.makeLibraryPath libs;
 
     installPhase = ''

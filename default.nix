@@ -21,8 +21,6 @@ in
       sha256 = "adcae5af912dcbdc74d996b6e94767f24d16bf1bdcd5073797f999fe75b018a4";
     };
 
-    buildPhase = ":";
-
     libPath = stdenv.lib.makeLibraryPath libs;
 
     nodegitLibrary = stdenv.lib.makeLibraryPath [ nodegit ];
