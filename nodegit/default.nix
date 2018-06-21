@@ -1,37 +1,35 @@
 { stdenv, fetchurl, curl, glibc, openssl }:
 
-let
+assert stdenv.system == "x86_64-linux";
+
+stdenv.mkDerivation rec {
+  name = "nodegit-${version}-node-v51";
   version = "0.20.3";
 
-  curlWithGnutls = curl.override {
-    sslSupport = false;
-    gnutlsSupport = true;
+  src = fetchurl {
+    url = "https://nodegit.s3.amazonaws.com/nodegit/nodegit/nodegit-v${version}-node-v51-linux-x64.tar.gz";
+    sha256 = "d022a88e58fa70f78b59b475fa6ecc6724d372a779b132264cf571f71bc50020";
   };
 
-  libs = [ stdenv.cc.cc curlWithGnutls glibc openssl ];
-in
+  libPath = stdenv.lib.makeLibraryPath [
+              stdenv.cc.cc
+              (curl.override {
+                sslSupport = false;
+                gnutlsSupport = true;
+              })
+              glibc
+              openssl
+            ];
 
-  assert stdenv.system == "x86_64-linux";
+  installPhase = ''
+    tar --extract --file=$src Release/nodegit.node --transform 's/Release\//linux-/'
+    lib=$out/lib/nodegit.node
+    mkdir -p $out/lib
+    mv linux-nodegit.node $lib
+  '';
 
-  stdenv.mkDerivation {
-    name = "nodegit-${version}-node-v51";
-
-    src = fetchurl {
-      url = "https://nodegit.s3.amazonaws.com/nodegit/nodegit/nodegit-v${version}-node-v51-linux-x64.tar.gz";
-      sha256 = "d022a88e58fa70f78b59b475fa6ecc6724d372a779b132264cf571f71bc50020";
-    };
-
-    libPath = stdenv.lib.makeLibraryPath libs;
-
-    installPhase = ''
-      tar --extract --file=$src Release/nodegit.node --transform 's/Release\//linux-/'
-      lib=$out/lib/nodegit.node
-      mkdir -p $out/lib
-      mv linux-nodegit.node $lib
-    '';
-
-    preFixup = ''
-      lib=$out/lib/nodegit.node
-      patchelf --set-rpath "$libPath" "$lib"
-    '';
-  }
+  preFixup = ''
+    lib=$out/lib/nodegit.node
+    patchelf --set-rpath "$libPath" "$lib"
+  '';
+}
