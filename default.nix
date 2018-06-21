@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {} }: with pkgs;
 
 callPackage ./clever-tools {
   nodegit = callPackage ./nodegit {};
