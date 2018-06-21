@@ -1,23 +1,17 @@
-{ pkgs }:
+{ stdenv, fetchurl, curl, glibc, openssl }:
 
 let
   version = "0.20.3";
 
-  stdenv = pkgs.stdenv;
-  fetchurl = pkgs.fetchurl;
-
-  curl = pkgs.curl.override {
+  curlWithGnutls = curl.override {
     sslSupport = false;
     gnutlsSupport = true;
   };
-  glibc = pkgs.glibc;
-  openssl = pkgs.openssl;
 
-  libs = [ stdenv.cc.cc curl glibc openssl ];
-
+  libs = [ stdenv.cc.cc curlWithGnutls glibc openssl ];
 in
 
-  assert pkgs.stdenv.system == "x86_64-linux";
+  assert stdenv.system == "x86_64-linux";
 
   stdenv.mkDerivation {
     name = "nodegit-${version}-node-v51";

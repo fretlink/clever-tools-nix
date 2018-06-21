@@ -1,3 +1,5 @@
 with import <nixpkgs> {};
 
-callPackage ./clever-tools {}
+callPackage ./clever-tools {
+  nodegit = callPackage ./nodegit {};
+}

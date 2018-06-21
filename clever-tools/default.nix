@@ -1,14 +1,9 @@
-{ pkgs ? import <nixpkgs> {} }:
-
-with pkgs;
+{ stdenv, fetchurl, glibc, nodegit }:
 
 let
   version = "0.9.3";
 
-  nodegit = import ../nodegit/default.nix { inherit pkgs; };
-
   libs = [ stdenv.cc.cc glibc ];
-
 in
 
   stdenv.mkDerivation {
