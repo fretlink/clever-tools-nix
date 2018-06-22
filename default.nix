@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {} }: with pkgs;
-
-callPackage ./clever-tools {
-  nodegit = callPackage ./nodegit {};
+{
+  latest = callPackage ./clever-tools {
+             nodegit = callPackage ./nodegit {};
+           };
 }
