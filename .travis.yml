@@ -2,7 +2,7 @@
 language: nix
 
 script:
- - nix-env -i -f default.nix
+ - nix-env -i -f default.nix -A latest
  - ./check.sh .
 
 notifications:
