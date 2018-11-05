@@ -12,14 +12,4 @@ Main job of those derivations is to use patchelf to make it nix compliant.
 
 ## How to use it
 
-```nix
-{ pkgs ? import <nixpkgs> {} }: with pkgs;
-
-let clever-tools = fetchFromGitHub {
-                     owner  = "fretlink";
-                     repo   = "clever-tools-nix";
-                     rev    = "DESIRED_REVISION_HASH";
-                     sha256 = "CONTENT_HASH";
-                   };
-in (import clever-tools {}).latest # select appropriate version
-```
+[See the example.nix](https://github.com/fretlink/clever-tools-nix/blob/master/example.nix)
