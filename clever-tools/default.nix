@@ -2,20 +2,23 @@
 
 stdenv.mkDerivation rec {
   name = "clever-tools-${version}";
-  version = "1.1.0";
+  version = "1.3.0";
 
   src = fetchurl {
     url = "https://clever-tools.cellar.services.clever-cloud.com/releases/${version}/clever-tools-${version}_linux.tar.gz";
-    sha256 = "1lkwckmlz2gf41xmnzydpcbly0jcry3bn8lp570gha768ic7xmb1";
+    sha256 = "03dasjxkg6x6f5d3l7dacc2h9v1i9q1vfzppnlzdpzkzkgv9vy6n";
   };
 
   libPath = stdenv.lib.makeLibraryPath [ stdenv.cc.cc glibc ];
 
-  installPhase = ''
+  unpackPhase = ''
     tar --extract --file=$src
+  '';
+
+  installPhase = ''
     bin=$out/bin/clever
     mkdir -p $out/bin
-    mv clever $bin
+    mv clever-tools-${version}_linux/clever $bin
   '';
 
   dontStrip = "true";

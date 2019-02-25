@@ -1,3 +1,7 @@
+## 1.3.0
+
+* split the `installPhase` by extracting the `unpackPhase`
+
 ## 1.1.0
 
 * Get rid of nodegit, not being used anymore by clever-tools.

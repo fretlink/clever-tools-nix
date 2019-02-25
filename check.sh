@@ -1,1 +1,1 @@
-[ "$(clever --version)" == "1.1.0" ]
+[ "$(clever --version)" == "1.3.0" ]
