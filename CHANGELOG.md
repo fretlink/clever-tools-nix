@@ -1,3 +1,7 @@
+## 1.4.0
+
+* just the update
+
 ## 1.3.0
 
 * split the `installPhase` by extracting the `unpackPhase`

@@ -21,6 +21,10 @@ in
     sha256 = "14ni1iaygbxihihmjiv7a7cg1q83y15lpqdp54frfyymjb7y12nj";
   };
 
-  # 1.3.0
+  v1_3_0 = mkOlderVersion {
+    rev = "2ea3abd717a23803bb936b49791d302d08cd29a6";
+    sha256 = "09nwb23cqbjm1z9rwrysqc06g9lcimrgcqw38zxs3sc4kiixdlfb";
+  };
+  # 1.4.0
   latest = callPackage ./clever-tools {};
 }
