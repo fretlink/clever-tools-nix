@@ -9,8 +9,7 @@ let
         inherit sha256;
       };
     in (import olderVersion {}).latest;
-in
-{
+in rec {
   v0_9_3 = mkOlderVersion {
     rev = "a60f5f961215e9a011b4a0dfe651758001f116d8";
     sha256 = "1n831iw55di0s2izbl03xivs59792swfji2n46vhi3mkdawrsjkg";
@@ -25,6 +24,13 @@ in
     rev = "2ea3abd717a23803bb936b49791d302d08cd29a6";
     sha256 = "09nwb23cqbjm1z9rwrysqc06g9lcimrgcqw38zxs3sc4kiixdlfb";
   };
-  # 1.4.0
-  latest = callPackage ./clever-tools {};
+
+  v1_4_0 = mkOlderVersion {
+    rev = "8b7c2198ffa7679394bd95c356cac8b8133d993a";
+    sha256 = "1r7n6cn2hj15a9msp55bbrb4j3srpmx00dxjj8vf0h5wagy8h1r5";
+  };
+
+  v1_4_2 = callPackage ./clever-tools {};
+
+  latest = v1_4_2;
 }

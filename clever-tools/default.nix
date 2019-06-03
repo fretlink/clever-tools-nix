@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name = "clever-tools-${version}";
-  version = "1.4.0";
+  version = "1.4.2";
 
   src = fetchurl {
     url = "https://clever-tools.cellar.services.clever-cloud.com/releases/${version}/clever-tools-${version}_linux.tar.gz";
-    sha256 = "1r0zjdr20si1hlikhzbpi57zmpd29zlik2frf7w46gjy1f6d1nhw";
+    sha256 = "080q7z526g5hikm8gy7i8fjm2kv656r17dcmgi0d8jg7w0z5759c";
   };
 
   libPath = stdenv.lib.makeLibraryPath [ stdenv.cc.cc glibc ];
