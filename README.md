@@ -16,4 +16,4 @@ Once you've done that, add a `mkOlderVersion` for the previous latest version. O
 
 Then, run `nix build`. It will give you the correct values for the hashes. Correct those, run it again and you'll see `result-` directories, one per version. Go ahead and make sure they all work.
 
-Finally, don't forget to update `check.sh` with the latest version number.
+Finally, don't forget to update `scripts/check.sh` with the latest version number.
