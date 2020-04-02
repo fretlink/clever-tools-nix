@@ -37,7 +37,7 @@ in rec {
 
   v1_6_2 = mkOlderVersion {
     rev = "2d492a117cf31d1a4951ae9e9dcc5dd6ebeabaa2";
-    sha256 = "00kmk1dxfs5d8qj74qj917gcssq0c1gm513wq4a7a4v5fm4zmirl";
+    sha256 = "0k0848aik036j90myf0gqapb0qm4khkf5wxhs7yhppmnpv3xgz24";
   };
 
   v1_6_3 = callPackage ./clever-tools {};
