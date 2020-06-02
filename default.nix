@@ -45,7 +45,12 @@ in rec {
     sha256 = "09n5phanqyrm73mw0rpgn5zaaibhnyp4sjfiidsnwk1fcd7wxmjb";
   };
 
-  v2_6_0 = callPackage ./clever-tools {};
+  v2_6_0 = mkOlderVersion {
+    rev = "69c08dd4edd8e88235a638bb20a992283e13244b";
+    sha256 = "1sqgsjchdd2mv18hnzrh26ys0iybx3qfwz7fk5j62ywapvxc4qm8";
+  };
 
-  latest = v2_6_0;
+  v2_6_1 = callPackage ./clever-tools {};
+
+  latest = v2_6_1;
 }
